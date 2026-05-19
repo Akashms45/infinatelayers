@@ -1,9 +1,86 @@
 @import "tailwindcss";
 
-/* Custom fonts or animations can be added here if desired */
+@theme {
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
 @layer base {
   body {
-    @apply bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'DM Sans', sans-serif;
+    @apply text-[#555555] bg-white;
   }
+}
+
+@layer components {
+  .hero-title {
+    @apply font-condensed text-[56px] sm:text-[64px] md:text-[76px] font-extrabold uppercase tracking-wide leading-[0.9];
+  }
+  
+  .section-title-logit {
+    @apply font-condensed text-[32px] sm:text-[40px] md:text-[46px] font-extrabold uppercase tracking-wide;
+  }
+  
+  .nav-link-logit {
+    @apply text-[13px] font-semibold uppercase tracking-wider text-[#111111] hover:text-[#F5820A] transition-colors relative py-2;
+  }
+  
+  .nav-link-logit::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-[2px] bg-[#F5820A] transition-all duration-300;
+  }
+  
+  .nav-link-logit:hover::after {
+    @apply w-full;
+  }
+  
+  .body-text-logit {
+    @apply font-body text-[14.5px] leading-relaxed;
+  }
+  
+  .btn-orange-pill {
+    @apply bg-[#F5820A] hover:bg-[#D97003] text-white px-7 py-3 rounded-full font-semibold text-sm transition-all duration-300 flex items-center gap-2;
+  }
+  
+  .btn-consultation {
+    @apply border-2 border-[#111111] hover:bg-[#111111] hover:text-white text-[#111111] px-6 py-2 rounded-full font-bold text-[13px] uppercase tracking-wider transition-all duration-300 flex items-center gap-2;
+  }
+  
+  .circle-arrow-btn {
+    @apply w-10 h-10 rounded-full bg-[#F5820A] hover:bg-[#D97003] text-white flex items-center justify-center transition-all duration-300;
+  }
+  
+
+
+  .container-logit {
+    @apply max-w-7xl mx-auto px-6;
+  }
+  
+  .section-spacing {
+    @apply py-20 md:py-28;
+  }
+  
+  .map-pin-highlight {
+    @apply absolute;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.15);
+  }
+  
+  .btn-glow:hover {
+    box-shadow: 0 0 20px rgba(245, 130, 10, 0.4);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #cccccc; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F5820A; 
 }
