@@ -51,24 +51,13 @@ export default function Services() {
               <Cpu className="w-12 h-12 text-[#F5820A]" />
             </div>
             <div className="bg-white px-6 pt-4 pb-6 text-center z-10 w-full relative">
-              <h3 className="font-bold text-lg text-[#111111] mb-3">Design Optimization</h3>
+              <h3 className="font-bold text-lg text-[#111111] mb-3">Post-Processing & Assembly</h3>
               <p className="text-[13px] text-[#666666] leading-relaxed max-w-[220px] mx-auto">
-                Expert consultancy to optimize your designs for additive manufacturing, ensuring structural integrity and cost efficiency.
+                Support removal, chemical washing, UV curing, precision sanding, and multi-part assembly to deliver ready-to-use finished products.
               </p>
             </div>
           </div>
 
-        </div>
-
-        {/* Faint 3D Grid outline */}
-        <div className="absolute right-4 bottom-10 w-[30%] opacity-[0.03] pointer-events-none">
-          <svg viewBox="0 0 400 300" fill="none" stroke="#111111" strokeWidth="1.5">
-            <polygon points="200,50 320,110 200,170 80,110" />
-            <polygon points="80,110 200,170 200,290 80,230" />
-            <polygon points="320,110 200,170 200,290 320,230" />
-            <line x1="140" y1="140" x2="260" y2="80" strokeDasharray="3 3" />
-            <line x1="260" y1="200" x2="140" y2="260" strokeDasharray="3 3" />
-          </svg>
         </div>
 
       </div>

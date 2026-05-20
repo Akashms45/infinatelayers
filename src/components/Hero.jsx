@@ -2,7 +2,7 @@ import { FaInstagram } from 'react-icons/fa';
 
 export default function Hero() {
   return (
-    <section className="hero-section flex items-center relative pt-8 pb-20 overflow-hidden">
+    <section id="home" className="hero-section flex items-center relative pt-8 pb-20 overflow-hidden">
       <div className="container-logit grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-10">
 
         {/* Left Side Content */}
@@ -14,32 +14,6 @@ export default function Hero() {
               backgroundImage: 'linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px)',
               backgroundSize: '40px 40px'
             }}>
-          </div>
-
-          {/* Faint Background Drawing (3D Coordinates & Layer Slices) behind text area */}
-          <div className="absolute left-[-10%] bottom-[-10%] w-[80%] h-auto opacity-[0.03] pointer-events-none z-0">
-            <svg viewBox="0 0 600 300" fill="none" stroke="#111111" strokeWidth="1">
-              {/* Grid Lines */}
-              <line x1="50" y1="250" x2="350" y2="250" strokeDasharray="4 4" />
-              <line x1="50" y1="250" x2="50" y2="50" strokeDasharray="4 4" />
-              <line x1="50" y1="250" x2="200" y2="150" strokeDasharray="4 4" />
-
-              {/* Axes labels */}
-              <text x="360" y="255" fontSize="12" fill="#111" fontFamily="sans-serif">X</text>
-              <text x="45" y="40" fontSize="12" fill="#111" fontFamily="sans-serif">Z</text>
-              <text x="210" y="145" fontSize="12" fill="#111" fontFamily="sans-serif">Y</text>
-
-              {/* Isometric Slices */}
-              <polygon points="120,220 180,220 220,190 160,190" />
-              <polygon points="120,200 180,200 220,170 160,170" />
-              <polygon points="120,180 180,180 220,150 160,150" />
-
-              {/* Verticals for the sliced volume */}
-              <line x1="120" y1="220" x2="120" y2="180" />
-              <line x1="180" y1="220" x2="180" y2="180" />
-              <line x1="220" y1="190" x2="220" y2="150" />
-              <line x1="160" y1="190" x2="160" y2="150" />
-            </svg>
           </div>
 
           <div className="relative z-10">

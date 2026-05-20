@@ -1,19 +1,19 @@
 import React from 'react';
-import { Heart, Bookmark, MessageCircle, Share, ArrowLeft } from 'lucide-react';
+import { Heart, Bookmark, MessageCircle, Share } from 'lucide-react';
 
 const filters = [
   "Guides", "News", "Learn", "Creators", "Digital Freebies", "Exchanges", "Connect"
 ];
 
 const products = [
-  { id: 1, title: 'White Abstract Sphere', author: 'Wade Warren', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/32.jpg', img: 'https://images.unsplash.com/photo-1618331835717-801e976710b2?auto=format&fit=crop&q=80&w=600' },
-  { id: 2, title: '3D Printed Skull', author: 'Savannah Nguyen', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/women/44.jpg', img: 'https://images.unsplash.com/photo-1563207153-f404bf40d3a5?auto=format&fit=crop&q=80&w=600' },
-  { id: 3, title: 'Green Yoda Print', author: 'Ronald Richards', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/22.jpg', img: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=600' },
-  { id: 4, title: 'Pink Donut', author: 'Robert Fox', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/46.jpg', img: 'https://images.unsplash.com/photo-1550747528-569d65942bc2?auto=format&fit=crop&q=80&w=600' },
-  { id: 5, title: 'Pink Robot', author: 'Wade Warren', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/32.jpg', img: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=600' },
-  { id: 6, title: 'Glass Triangle', author: 'Savannah Nguyen', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/women/44.jpg', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600' },
-  { id: 7, title: 'Pink Abstract', author: 'Ronald Richards', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/22.jpg', img: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=600' },
-  { id: 8, title: 'Yellow Cat Block', author: 'Robert Fox', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/46.jpg', img: 'https://images.unsplash.com/photo-1581090586937-236b9dd89524?auto=format&fit=crop&q=80&w=600' }
+  { id: 1, title: 'High-Precision Gear Assembly', author: 'Wade Warren', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/32.jpg', img: 'https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&q=80&w=600' },
+  { id: 2, title: 'SLA Custom Skull Model', author: 'Savannah Nguyen', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/women/44.jpg', img: 'https://images.unsplash.com/photo-1563207153-f404bf40d3a5?auto=format&fit=crop&q=80&w=600' },
+  { id: 3, title: 'Biocompatible Dental Arch', author: 'Ronald Richards', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/22.jpg', img: 'https://images.unsplash.com/photo-1580979666060-d261e4e24395?auto=format&fit=crop&q=80&w=600' },
+  { id: 4, title: 'Detailed Architectural Layout', author: 'Robert Fox', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/46.jpg', img: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=600' },
+  { id: 5, title: 'Industrial Prototyping Gear', author: 'Wade Warren', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/32.jpg', img: 'https://images.unsplash.com/photo-1550747528-569d65942bc2?auto=format&fit=crop&q=80&w=600' },
+  { id: 6, title: 'PLA Mechanical Shell', author: 'Savannah Nguyen', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/women/44.jpg', img: 'https://images.unsplash.com/photo-1615840287214-7fe58a8f3685?auto=format&fit=crop&q=80&w=600' },
+  { id: 7, title: 'Dental Resin Arch Model', author: 'Ronald Richards', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/22.jpg', img: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&q=80&w=600' },
+  { id: 8, title: 'Architectural Scale Model', author: 'Robert Fox', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/46.jpg', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600' }
 ];
 
 export default function AllProducts() {
