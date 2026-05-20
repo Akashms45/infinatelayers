@@ -12,7 +12,7 @@ export default function About() {
           </h2>
           <div className="flex-1 max-w-[500px] pt-4 lg:pt-6 text-right lg:text-left ml-auto px-4">
             <p className="text-[#4B5563] text-[13px] md:text-[14px] leading-[1.8] font-medium">
-              Superly is a marketplace where individuals and organizations can purchase carbon offsets and renewable energy certificates for cryptocurrency, NFTs, Metaverse assets, DAOs, and gaming as well as their overall lifestyle. Superly supports users who want to pay with cryptocurrency. Superly provides a tailored methodology for calculating how many carbon offsets are needed to create a virtual portfolio that is carbon neutral. We offer climate forward services at the personal and corporate levels.
+              Infinite Layers is a recently established 3D printing business dedicated to transforming your digital concepts into physical realities. Specializing in state-of-the-art additive manufacturing, rapid prototyping, and custom small-batch production, we serve creators, designers, and engineers alike. Our mission is to provide industry-grade layer resolution and reliable, premium-quality materials to bring any vision to life, layer by layer.
             </p>
           </div>
         </div>
