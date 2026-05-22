@@ -1,22 +1,92 @@
-import React from 'react';
-import { Heart, Bookmark, MessageCircle, Share } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { products } from '../data/products';
 
 const filters = [
-  "Guides", "News", "Learn", "Creators", "Digital Freebies", "Exchanges", "Connect"
+  "All", "Keychains", "Monuments", "Miniatures", "Statues", "HueForge"
 ];
 
-const products = [
-  { id: 1, title: 'High-Precision Gear Assembly', author: 'Wade Warren', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/32.jpg', img: 'https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&q=80&w=600' },
-  { id: 2, title: 'SLA Custom Skull Model', author: 'Savannah Nguyen', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/women/44.jpg', img: 'https://images.unsplash.com/photo-1563207153-f404bf40d3a5?auto=format&fit=crop&q=80&w=600' },
-  { id: 3, title: 'Biocompatible Dental Arch', author: 'Ronald Richards', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/22.jpg', img: 'https://images.unsplash.com/photo-1580979666060-d261e4e24395?auto=format&fit=crop&q=80&w=600' },
-  { id: 4, title: 'Detailed Architectural Layout', author: 'Robert Fox', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/46.jpg', img: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=600' },
-  { id: 5, title: 'Industrial Prototyping Gear', author: 'Wade Warren', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/32.jpg', img: 'https://images.unsplash.com/photo-1550747528-569d65942bc2?auto=format&fit=crop&q=80&w=600' },
-  { id: 6, title: 'PLA Mechanical Shell', author: 'Savannah Nguyen', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/women/44.jpg', img: 'https://images.unsplash.com/photo-1615840287214-7fe58a8f3685?auto=format&fit=crop&q=80&w=600' },
-  { id: 7, title: 'Dental Resin Arch Model', author: 'Ronald Richards', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/22.jpg', img: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&q=80&w=600' },
-  { id: 8, title: 'Architectural Scale Model', author: 'Robert Fox', likes: 223, saves: 4, comments: 34, shares: 17, avatar: 'https://randomuser.me/api/portraits/men/46.jpg', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600' }
-];
+function ProductCardImage({ images, title }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images]);
+
+  if (!images || images.length === 0) {
+    return (
+      <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400">
+        No Image
+      </div>
+    );
+  }
+
+  if (images.length === 1) {
+    return (
+      <img src={images[0]} alt={title} className="w-full h-full object-cover" />
+    );
+  }
+
+  return (
+    <div className="w-full h-full relative">
+      {images.map((img, idx) => (
+        <img
+          key={idx}
+          src={img}
+          alt={`${title} - ${idx + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+            idx === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+          }`}
+        />
+      ))}
+      {/* Indicator dots for multiple images */}
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20 bg-black/25 px-2 py-1 rounded-full backdrop-blur-xs">
+        {images.map((_, idx) => (
+          <span
+            key={idx}
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+              idx === currentIndex ? 'bg-[#F5820A] w-3' : 'bg-white/60'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function AllProducts() {
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  useEffect(() => {
+    const handleUrlChange = () => {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('category');
+      if (cat && filters.includes(cat)) {
+        setActiveFilter(cat);
+      } else {
+        setActiveFilter('All');
+      }
+    };
+
+    handleUrlChange();
+
+    window.addEventListener('popstate', handleUrlChange);
+    return () => window.removeEventListener('popstate', handleUrlChange);
+  }, []);
+
+  const handleFilterClick = (filter) => {
+    setActiveFilter(filter);
+    const newSearch = filter === 'All' ? '' : `?category=${filter}`;
+    window.history.pushState(null, '', `/all-products${newSearch}`);
+  };
+
+  const filteredProducts = activeFilter === "All"
+    ? products
+    : products.filter(product => product.category === activeFilter);
+
   return (
     <div className="min-h-screen pt-8 pb-24 relative z-10 overflow-hidden">
 
@@ -35,7 +105,12 @@ export default function AllProducts() {
           {filters.map((filter, idx) => (
             <button
               key={idx}
-              className="px-6 py-2.5 rounded-full border border-gray-200 bg-white text-[#1F1B3E] font-semibold text-[14px] hover:border-[#F5820A] hover:text-[#F5820A] transition-colors shadow-sm"
+              onClick={() => handleFilterClick(filter)}
+              className={`px-6 py-2.5 rounded-full border font-semibold text-[14px] transition-all duration-300 shadow-sm cursor-pointer ${
+                activeFilter === filter
+                  ? 'border-[#F5820A] text-[#F5820A] bg-[#F5820A]/5 scale-105'
+                  : 'border-gray-200 bg-white text-[#1F1B3E] hover:border-[#F5820A] hover:text-[#F5820A]'
+              }`}
             >
               {filter}
             </button>
@@ -44,23 +119,31 @@ export default function AllProducts() {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {products.map((item) => (
+          {filteredProducts.map((item) => (
             <div key={item.id} className="bg-white rounded-[32px] p-4 flex flex-col gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-300">
 
               {/* Product Image */}
-              <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden bg-gray-100">
-                <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
+              <div className="w-full aspect-[4/3] rounded-[24px] overflow-hidden bg-gray-100 relative">
+                <ProductCardImage images={item.images} title={item.title} />
               </div>
 
               {/* Product Info */}
-              <div className="px-3 pb-2 pt-1">
+              <div className="px-3 pb-2 pt-1 flex flex-col gap-1.5">
                 <span className="text-[16px] font-bold text-[#111111] block text-center md:text-left">{item.title}</span>
+                <span className="text-[14px] font-bold text-[#F5820A] block text-center md:text-left">{item.price}</span>
               </div>
             </div>
           ))}
         </div>
 
+        {filteredProducts.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-[#666666] text-lg font-medium">No products found in this category.</p>
+          </div>
+        )}
+
       </div>
     </div>
   );
 }
+

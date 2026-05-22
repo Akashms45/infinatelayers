@@ -44,7 +44,7 @@ export default function Products() {
   };
 
   return (
-    <section id="products" className="pt-10 pb-24 bg-white relative overflow-hidden">
+    <section id="products" className="pt-10 pb-24 bg-white relative overflow-hidden reveal-on-scroll">
 
       {/* Faint Grid Background (Matching Hero Section) */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
@@ -76,19 +76,19 @@ export default function Products() {
             <div key={product.id} className="bg-white rounded-[40px] p-6 pb-8 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 flex flex-col">
 
               {/* Image Gallery - Unchanged Visuals */}
-              <div className="flex justify-center items-center -space-x-4 mb-8 mt-2">
+              <div className="flex justify-center items-center -space-x-3 sm:-space-x-4 mb-8 mt-2">
                 {/* Left Image */}
-                <div className="w-[105px] h-[125px] rounded-[24px] overflow-hidden relative z-0 shadow-sm opacity-90">
+                <div className="w-[80px] h-[95px] sm:w-[105px] sm:h-[125px] rounded-[24px] overflow-hidden relative z-0 shadow-sm opacity-90">
                   <img src={product.images[0]} alt="" className="w-full h-full object-cover" />
                 </div>
 
                 {/* Center Image */}
-                <div className="w-[145px] h-[160px] rounded-[30px] overflow-hidden relative z-10 shadow-2xl">
+                <div className="w-[110px] h-[120px] sm:w-[145px] sm:h-[160px] rounded-[30px] overflow-hidden relative z-10 shadow-2xl">
                   <img src={product.images[1]} alt="" className="w-full h-full object-cover" />
                 </div>
 
                 {/* Right Image */}
-                <div className="w-[105px] h-[125px] rounded-[24px] overflow-hidden relative z-0 shadow-sm opacity-90">
+                <div className="w-[80px] h-[95px] sm:w-[105px] sm:h-[125px] rounded-[24px] overflow-hidden relative z-0 shadow-sm opacity-90">
                   <img src={product.images[2]} alt="" className="w-full h-full object-cover" />
                 </div>
               </div>

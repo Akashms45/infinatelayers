@@ -24,13 +24,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white relative">
+    <section id="contact" className="py-24 bg-white relative reveal-on-scroll">
       <div className="max-w-[1300px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
         {/* Left Content */}
         <div className="flex flex-col">
-          <h2 className="text-[50px] md:text-[65px] font-bold text-[#111111] leading-[1.1] tracking-tight mb-6">
-            Get in <span className="inline-block w-[60px] md:w-[80px] h-[3px] bg-[#111111] align-middle mb-[15px] ml-2"></span><br/>
+          <h2 className="text-[36px] sm:text-[50px] md:text-[65px] font-bold text-[#111111] leading-[1.1] tracking-tight mb-6">
+            Get in <span className="inline-block w-[40px] sm:w-[60px] md:w-[80px] h-[3px] bg-[#111111] align-middle mb-[10px] md:mb-[15px] ml-2"></span><br/>
             touch with us
           </h2>
           <p className="text-[#666666] text-[16px] md:text-[18px] leading-relaxed mb-10 max-w-[500px]">
@@ -40,19 +40,19 @@ export default function Contact() {
           <div className="mb-6">
             <p className="text-[#666666] text-[15px] mb-1">Email Us:</p>
             <p className="text-[22px] md:text-[24px] font-bold text-[#111111]">
-              <a href="mailto:hello@infinatelayers.com" className="hover:text-[#F5820A] transition-colors">hello@infinatelayers.com</a>
+              <a href="mailto:infinatelayers@gmail.com" className="hover:text-[#F5820A] transition-colors">infinatelayers@gmail.com</a>
             </p>
           </div>
           
           <div className="mb-6">
             <p className="text-[#666666] text-[15px] mb-1">Call Our Office:</p>
-            <p className="text-[22px] md:text-[24px] font-bold text-[#111111]">+1 234 567 78</p>
+            <p className="text-[22px] md:text-[24px] font-bold text-[#111111]">+91 63633 47092</p>
           </div>
 
         </div>
 
         {/* Right Form Card */}
-        <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-[0_15px_50px_rgba(0,0,0,0.08)] border border-gray-100">
+        <div className="bg-white rounded-[32px] sm:rounded-[40px] p-5 sm:p-8 md:p-12 shadow-[0_15px_50px_rgba(0,0,0,0.08)] border border-gray-100">
           {status === 'success' ? (
             <div className="flex flex-col items-center text-center py-8">
               <div className="w-16 h-16 bg-[#FFF0E6] text-[#F5820A] rounded-full flex items-center justify-center mb-6">
@@ -76,7 +76,7 @@ export default function Contact() {
                 <div className="flex items-start gap-3 bg-red-50 text-red-700 p-4 rounded-2xl border border-red-100 text-[13px] leading-relaxed">
                   <AlertCircle size={18} className="shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold">Could not send message:</span> {errorMessage || 'Connection failed.'} Please try again or email us directly at <a href="mailto:hello@infinatelayers.com" className="underline font-bold">hello@infinatelayers.com</a>.
+                    <span className="font-bold">Could not send message:</span> {errorMessage || 'Connection failed.'} Please try again or email us directly at <a href="mailto:infinatelayers@gmail.com" className="underline font-bold">infinatelayers@gmail.com</a>.
                   </div>
                 </div>
               )}

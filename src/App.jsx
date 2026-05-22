@@ -7,6 +7,7 @@ import Products from './components/Products';
 import AllProducts from './components/AllProducts';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import GoToTop from './components/GoToTop';
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -47,12 +48,37 @@ function App() {
     }
   }, [currentPath]);
 
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -60px 0px',
+      threshold: 0.05
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('.reveal-on-scroll');
+    elements.forEach(el => observer.observe(el));
+
+    return () => {
+      elements.forEach(el => observer.unobserve(el));
+    };
+  }, [currentPath]);
+
   if (currentPath === '/all-products') {
     return (
       <div className="min-h-screen bg-white text-[#111111] overflow-x-hidden selection:bg-[#F5820A] selection:text-white relative">
         <Navbar />
         <AllProducts />
         <Footer />
+        <GoToTop />
       </div>
     );
   }
@@ -66,6 +92,7 @@ function App() {
       <Products />
       <Contact />
       <Footer />
+      <GoToTop />
     </div>
   );
 }

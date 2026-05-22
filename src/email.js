@@ -7,9 +7,9 @@ import emailjs from '@emailjs/browser';
  */
 export const sendContactForm = (formElement) => {
   // Pre-configured templates - replace these with your actual dashboard credentials
-  const serviceId = 'service_infinite_layers';
-  const templateId = 'template_infinite_layers';
-  const publicKey = 'user_your_public_key_here';
+  const serviceId = 'service_tjqf95d';
+  const templateId = 'template_0230ooe';
+  const publicKey = 'Ne9eD_3rnskFGdaux';
 
   return emailjs.sendForm(serviceId, templateId, formElement, publicKey);
 };

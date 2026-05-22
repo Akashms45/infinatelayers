@@ -2,8 +2,8 @@ import { FaInstagram } from 'react-icons/fa';
 
 export default function Hero() {
   return (
-    <section id="home" className="hero-section flex items-center relative pt-8 pb-20 overflow-hidden">
-      <div className="container-logit grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-10">
+    <section id="home" className="hero-section flex items-center relative pt-8 pb-20 overflow-hidden reveal-on-scroll">
+      <div className="container-logit grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-2 items-center w-full relative z-10">
 
         {/* Left Side Content */}
         <div className="lg:col-span-6 flex flex-col justify-center pt-8 relative">
@@ -38,7 +38,7 @@ export default function Hero() {
             </div>
 
             {/* Buttons */}
-            <div className="flex items-center gap-4 mb-16">
+            <div className="flex items-center gap-4 mb-2 lg:mb-16">
               <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="border-2 border-[#F5820A] text-[#F5820A] hover:bg-[#F5820A] hover:text-white px-7 py-2.5 rounded-full font-bold text-[14px] transition-all flex items-center gap-2">
                 <FaInstagram size={18} />
                 <span>Instagram</span>
@@ -48,8 +48,8 @@ export default function Hero() {
         </div>
 
         {/* Right Side Content (3D Printer SVG Render) */}
-        <div className="lg:col-span-6 flex justify-end relative z-0">
-          <div className="w-[140%] max-w-[1000px] absolute right-[-150px] top-[-250px] pointer-events-none">
+        <div className="lg:col-span-6 flex justify-end relative z-0 w-full">
+          <div className="w-full max-w-[720px] mx-auto lg:w-[140%] lg:max-w-[1000px] lg:absolute lg:right-[-150px] lg:top-[-250px] pointer-events-none relative right-0 top-0 mt-0 lg:mt-0">
             <svg viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto drop-shadow-2xl">
               <defs>
                 <linearGradient id="metal-vertical" x1="0%" y1="0%" x2="100%" y2="0%">

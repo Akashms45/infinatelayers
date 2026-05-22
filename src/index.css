@@ -14,7 +14,7 @@
 
 @layer components {
   .hero-title {
-    @apply font-condensed text-[56px] sm:text-[64px] md:text-[76px] font-extrabold uppercase tracking-wide leading-[0.9];
+    @apply font-condensed text-[42px] sm:text-[64px] md:text-[76px] font-extrabold uppercase tracking-wide leading-[0.9];
   }
   
   .section-title-logit {
@@ -84,3 +84,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #F5820A; 
 }
+
+/* Scroll Reveal Animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+

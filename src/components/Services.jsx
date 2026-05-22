@@ -3,7 +3,7 @@ import { Printer, Layers, Cpu } from 'lucide-react';
 
 export default function Services() {
   return (
-    <section id="services" className="pt-10 pb-24 bg-white relative">
+    <section id="services" className="pt-10 pb-24 bg-white relative reveal-on-scroll">
       <div className="container-logit text-center">
         
         {/* Header */}

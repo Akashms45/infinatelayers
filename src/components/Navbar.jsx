@@ -171,7 +171,7 @@ export default function Navbar() {
               <a
                 href="/contact"
                 onClick={(e) => handleNavClick(e, '/contact')}
-                className="bg-[#F5820A] hover:bg-[#D97003] text-white px-8 py-3 rounded-full font-bold text-[14px] transition-all shadow-md shadow-[#F5820A]/20"
+                className="hidden sm:inline-flex bg-[#F5820A] hover:bg-[#D97003] text-white px-8 py-3 rounded-full font-bold text-[14px] transition-all shadow-md shadow-[#F5820A]/20"
               >
                 Contact Us
               </a>
@@ -215,6 +215,13 @@ export default function Navbar() {
                 onClick={(e) => handleNavClick(e, '/products')}
               >
                 Products
+              </a>
+              <a
+                href="/contact"
+                className={`text-[16px] py-1 transition-colors ${currentPath === '/contact' ? 'font-bold text-[#F5820A]' : 'font-semibold text-[#111111]'}`}
+                onClick={(e) => handleNavClick(e, '/contact')}
+              >
+                Contact Us
               </a>
             </div>
           )}
